@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, flash
-from forms import PatientForm, DoctorForm
+from forms import PatientForm, DoctorForm, EmergencyForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'
@@ -29,6 +29,15 @@ def doctor():
         return redirect(url_for('home'))
     return render_template('doctor.html', form=form)
 
+
+@app.route('/emergency', methods=['GET', 'POST'])
+def emergency():
+    form = EmergencyForm()
+    if form.validate_on_submit():
+        # Process the form data
+        flash('Emergency form submitted successfully', 'success')
+        return redirect(url_for('home'))
+    return render_template('emergency.html', form=form)
 
 if __name__ == '__main__':
     app.run(debug=True)

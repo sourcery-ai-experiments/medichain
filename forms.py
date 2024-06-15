@@ -13,3 +13,8 @@ class DoctorForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     specialty = StringField('Specialty', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class EmergencyForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    specialty = StringField('Specialty', validators=[DataRequired()])
+    submit = SubmitField('Submit')

@@ -7,16 +7,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <title>Patient Form</title>
+    <title>Emergency Form</title>
 </head>
-<body class="patient">
-    <div class="main-container" id="patient-container">
+<body class="emergency">
+    <div class="main-container" id="emergency-container">
         <div class="form-wrapper">
             <div class="form-header">
-                <h1 class="patient-title">&#129301;Patient</h1>
+                <h1 class="emergency-title">&#128657;Emergency</h1>
             </div>
             <div class="form-content">
-                <form method="POST" action="{{ url_for('patient') }}">
+                 <form method="POST" action="{{ url_for('emergency') }}">
                     {{ form.hidden_tag() }}
                     <p>
                         {{ form.name.label }}<br>
@@ -26,9 +26,9 @@
                         {% endfor %}
                     </p>
                     <p>
-                        {{ form.age.label }}<br>
-                        {{ form.age(size=32) }}<br>
-                        {% for error in form.age.errors %}
+                        {{ form.specialty.label }}<br>
+                        {{ form.specialty(size=32) }}<br>
+                        {% for error in form.specialty.errors %}
                         <span style="color: red;">[{{ error }}]</span><br>
                         {% endfor %}
                     </p>
@@ -36,12 +36,13 @@
             </div>
             <div class="form-button-pane">
                 <div style="margin-bottom: 2rem;">
-                    <p class="submit-btn-patient">{{ form.submit() }}</p>
+                    <p class="submit-btn-emergency">{{ form.submit() }}</p>
                 </div>
                 <div>
                     <a href="{{ url_for('home') }}">&#8592; Back to Home</a>
                 </div>
             </div>
+
         </div>
     </div>
 </body>

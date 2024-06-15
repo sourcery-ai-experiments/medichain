@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Doctor Form</title>
 </head>
-<body>
-    <div class="main-container">
+<body class="doctor">
+    <div class="main-container" id="doctor-container">
         <div class="form-wrapper">
-                <h1>Doctor Form</h1>
-
-                <form method="POST" action="{{ url_for('doctor') }}">
+            <div class="form-header">
+                <h1 class="doctor-title">👨‍⚕️Doctor</h1>
+            </div>
+            <div class="form-content">
+                 <form method="POST" action="{{ url_for('doctor') }}">
                     {{ form.hidden_tag() }}
                     <p>
                         {{ form.name.label }}<br>
@@ -27,10 +32,18 @@
                         <span style="color: red;">[{{ error }}]</span><br>
                         {% endfor %}
                     </p>
-                    <p>{{ form.submit() }}</p>
                 </form>
-                <a href="{{ url_for('home') }}">Back to Home</a>
             </div>
+            <div class="form-button-pane">
+                <div style="margin-bottom: 2rem;">
+                    <p class="submit-btn-doctor">{{ form.submit() }}</p>
+                </div>
+                <div>
+                    <a href="{{ url_for('home') }}">&#8592; Back to Home</a>
+                </div>
+            </div>
+
         </div>
+    </div>
 </body>
 </html>
