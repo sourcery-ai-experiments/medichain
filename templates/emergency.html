@@ -15,21 +15,28 @@
             <div class="form-header">
                 <h1 class="emergency-title">&#128657;Emergency</h1>
             </div>
-            <div class="form-content">
+            <div class="form-content one-form-page">
                  <form method="POST" action="{{ url_for('emergency') }}">
                     {{ form.hidden_tag() }}
                     <p>
-                        {{ form.name.label }}<br>
-                        {{ form.name(size=32) }}<br>
-                        {% for error in form.name.errors %}
-                        <span style="color: red;">[{{ error }}]</span><br>
+                        {{ form.patient_id.label }}<br>
+                        {{ form.patient_id(size=32) }}<br>
+                        {% for error in form.patient_id.errors %}
+                            <span class="error">[{{ error }}]</span><br>
                         {% endfor %}
                     </p>
                     <p>
-                        {{ form.specialty.label }}<br>
-                        {{ form.specialty(size=32) }}<br>
-                        {% for error in form.specialty.errors %}
-                        <span style="color: red;">[{{ error }}]</span><br>
+                        {{ form.special_password.label }}<br>
+                        {{ form.special_password(size=32) }}<br>
+                        {% for error in form.special_password.errors %}
+                            <span class="error">[{{ error }}]</span><br>
+                        {% endfor %}
+                    </p>
+                      <p>
+                        {{ form.decryption_key.label }}<br>
+                        {{ form.decryption_key(size=32) }}<br>
+                        {% for error in form.decryption_key.errors %}
+                            <span class="error">[{{ error }}]</span><br>
                         {% endfor %}
                     </p>
                 </form>

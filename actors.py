@@ -1,21 +1,21 @@
 from dataclasses import dataclass
 from smart_contract import SmartContract
 from datetime import date
-from enum import Enum
+from enum import StrEnum
 
 
 class Actor:
-    def write_medical_record(smart_contract: SmartContract):
+    def write_medical_record(self, smart_contract: SmartContract):
         pass
 
-    def read_medical_record(smart_contract: SmartContract):
+    def read_medical_record(self, smart_contract: SmartContract):
         pass
 
-    def modify_medical_record(smart_contract: SmartContract):
+    def modify_medical_record(self, smart_contract: SmartContract):
         pass
 
 
-class Gender(Enum):
+class Gender(StrEnum):
     MALE = "male"
     FEMALE = "female"
     OTHER = "other"

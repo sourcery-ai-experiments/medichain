@@ -15,28 +15,65 @@
             <div class="form-header">
                 <h1 class="doctor-title">👨‍⚕️Doctor</h1>
             </div>
-            <div class="form-content">
-                 <form method="POST" action="{{ url_for('doctor') }}">
-                    {{ form.hidden_tag() }}
-                    <p>
-                        {{ form.name.label }}<br>
-                        {{ form.name(size=32) }}<br>
-                        {% for error in form.name.errors %}
-                        <span style="color: red;">[{{ error }}]</span><br>
-                        {% endfor %}
-                    </p>
-                    <p>
-                        {{ form.specialty.label }}<br>
-                        {{ form.specialty(size=32) }}<br>
-                        {% for error in form.specialty.errors %}
-                        <span style="color: red;">[{{ error }}]</span><br>
-                        {% endfor %}
-                    </p>
-                </form>
+            <div class="form-content doctor-content">
+                <div class="add-record-form">
+                    <h2>View Medical Records</h2>
+                    <form method="POST" action="{{ url_for('doctor') }}">
+                        {{ view_form.hidden_tag() }}
+                        <p>
+                            {{ view_form.record_id.label }}<br>
+                            {{ view_form.record_id(size=32) }}<br>
+                            {% for error in view_form.record_id.errors %}
+                            <span class="error">[{{ error }}]</span><br>
+                            {% endfor %}
+                        </p>
+                        <p>
+                            {{ view_form.password.label }}<br>
+                            {{ view_form.password(size=32) }}<br>
+                            {% for error in view_form.password.errors %}
+                            <span class="error">[{{ error }}]</span><br>
+                            {% endfor %}
+                        </p>
+                        <p>
+                            {{ view_form.decryption_key.label }}<br>
+                            {{ view_form.decryption_key(size=32) }}<br>
+                            {% for error in view_form.decryption_key.errors %}
+                            <span class="error">[{{ error }}]</span><br>
+                            {% endfor %}
+                        </p>
+                    </form>
+                </div>
+                <div class="view-record-form">
+                    <h2>Add Medical Record</h2>
+                    <form method="POST" action="{{ url_for('doctor') }}">
+                        {{ add_form.hidden_tag() }}
+                        <p>
+                            {{ add_form.patient_id.label }}<br>
+                            {{ add_form.patient_id(size=32) }}<br>
+                            {% for error in add_form.patient_id.errors %}
+                            <span class="error">[{{ error }}]</span><br>
+                            {% endfor %}
+                        </p>
+                        <p>
+                            {{ add_form.information.label }}<br>
+                            {{ add_form.information(size=32) }}<br>
+                            {% for error in add_form.information.errors %}
+                            <span class="error">[{{ error }}]</span><br>
+                            {% endfor %}
+                        </p>
+                    </form>
+                </div>
+
+
             </div>
             <div class="form-button-pane">
-                <div style="margin-bottom: 2rem;">
-                    <p class="submit-btn-doctor">{{ form.submit() }}</p>
+                <div class="flex-row w-100" style="margin-bottom: 2rem; justify-content: space-evenly;">
+                    <div>
+                        <p class="submit-btn-doctor">{{ view_form.submit() }}</p>
+                    </div>
+                    <div>
+                        <p class="submit-btn-doctor">{{ add_form.submit() }}</p>
+                    </div>
                 </div>
                 <div>
                     <a href="{{ url_for('home') }}">&#8592; Back to Home</a>

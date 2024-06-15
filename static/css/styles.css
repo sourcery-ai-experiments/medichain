@@ -8,6 +8,10 @@
     font-style: normal;
 }
 
+.w-100 {
+    width: 100%;
+}
+
 h1 {
     font-size: 3.5em;
 }
@@ -17,6 +21,24 @@ a {
     font-weight: bold;
 }
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.one-form-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
 body {
     width: 100vw;
     height: 100vh;
@@ -24,8 +46,8 @@ body {
 }
 
 .main-container {
-    max-width: 30%;
-    height: 50vh;
+    width: 30%;
+    height: 55vh;
     margin: 10rem auto 0 auto;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -50,12 +72,17 @@ body {
     height: 10%;
 }
 
-.form-content {
-    height: 75%
+.form-content > div {
+    height: 75%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.form-content {
+    width: 100%;
 }
 
 .form-content p {
@@ -72,6 +99,7 @@ body {
 
 .form-button-pane {
     height: 15%;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -169,6 +197,8 @@ body.doctor * {
 }
 
 .main-container#doctor-container {
+    width: 60%;
+    height: 60vh;
     background: rgba(176, 235, 180, 1);
     border: 1px solid rgba(172, 225, 175, 1);
 }
@@ -189,6 +219,17 @@ body.doctor .form-content input {
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
     background: #f2d537;
+}
+
+.doctor-content {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.view-record-form, .add-record-form {
+    width: 40%;
 }
 
 /* Home */
