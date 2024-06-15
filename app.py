@@ -31,6 +31,7 @@ def doctor():
         return redirect(url_for('view_medical_record', record_id=view_form.record_id.data))
     elif add_form.validate_on_submit():
         # Process the form data for adding a medical record
+        # In a real application, you would save this data to the database
         flash('Adding medical record', 'success')
         return redirect(url_for('home'))
     return render_template('doctor.html', view_form=view_form, add_form=add_form)

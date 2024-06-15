@@ -90,11 +90,12 @@ body {
     font-size: 1.2em;
 }
 
-.form-content input {
+.form-content input, .form-content textarea {
    padding: 0.4em;
    font-size: 1.2em;
-   border: 1px solid rgba(235, 84, 84, 1);
    color: black;
+   resize: none;
+   width: 100%;
 }
 
 .form-button-pane {
@@ -198,7 +199,7 @@ body.doctor * {
 
 .main-container#doctor-container {
     width: 60%;
-    height: 60vh;
+    height: 80vh;
     background: rgba(176, 235, 180, 1);
     border: 1px solid rgba(172, 225, 175, 1);
 }
@@ -279,4 +280,27 @@ footer {
 .home-wrapper li {
    list-style: none;
    font-size: 2em;
+}
+
+/* Medical record */
+.medical-record-content {
+    height: 90%;
+}
+
+p.add-record-textarea textarea {
+    border: 1px solid rgba(172, 225, 175, 1);
+}
+
+.record-data-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.record-data-header > p {
+    padding: 6px;
+    font-size: 2em;
+}
+
+.record-data-content > p {
+    padding: 6px;
 }

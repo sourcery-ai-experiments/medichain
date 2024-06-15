@@ -48,17 +48,31 @@
                     <form method="POST" action="{{ url_for('doctor') }}">
                         {{ add_form.hidden_tag() }}
                         <p>
-                            {{ add_form.patient_id.label }}<br>
-                            {{ add_form.patient_id(size=32) }}<br>
-                            {% for error in add_form.patient_id.errors %}
-                            <span class="error">[{{ error }}]</span><br>
+                            {{ add_form.date.label }}<br>
+                            {{ add_form.date(size=32) }}<br>
+                            {% for error in add_form.date.errors %}
+                                <span class="error">[{{ error }}]</span><br>
                             {% endfor %}
                         </p>
                         <p>
-                            {{ add_form.information.label }}<br>
-                            {{ add_form.information(size=32) }}<br>
-                            {% for error in add_form.information.errors %}
-                            <span class="error">[{{ error }}]</span><br>
+                            {{ add_form.patient_id.label }}<br>
+                            {{ add_form.patient_id(size=32) }}<br>
+                            {% for error in add_form.patient_id.errors %}
+                                <span class="error">[{{ error }}]</span><br>
+                            {% endfor %}
+                        </p>
+                        <p class="add-record-textarea">
+                            {{ add_form.comment.label }}<br>
+                            {{ add_form.comment(cols=32, rows=4) }}<br>
+                            {% for error in add_form.comment.errors %}
+                                <span class="error">[{{ error }}]</span><br>
+                            {% endfor %}
+                        </p>
+                        <p class="add-record-textarea">
+                            {{ add_form.predicaments.label }}<br>
+                            {{ add_form.predicaments(cols=32, rows=4) }}<br>
+                            {% for error in add_form.predicaments.errors %}
+                                <span class="error">[{{ error }}]</span><br>
                             {% endfor %}
                         </p>
                     </form>

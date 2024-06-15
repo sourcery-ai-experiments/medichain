@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <title>Medical Record</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="home">
+    <div class="main-container" id="home-container">
+        <div class="home-wrapper">
+            <div class="form-header">
+                <h1 class="home-title">&#128209; {{ medical_record.record_id }} </h1>
+            </div>
+            <div class="medical-record-content">
+
+                <div class="record-data-container">
+                    <div class="record-data-header">
+                        <p>Patient</p>
+                    </div>
+                    <div class="record-data-content">
+                        <p> {{ medical_record.patient_id }} Jan Kowalski</p>
+                    </div>
+                </div>
+                <div class="record-data-container">
+                    <div class="record-data-header">
+                        <p>Date</p>
+                    </div>
+                    <div class="record-data-content">
+                        <p> {{ medical_record.date }} 01.01.1970 </p>
+                    </div>
+                </div>
+                <div class="record-data-container">
+                    <div class="record-data-header">
+                        <p>Predicaments</p>
+                    </div>
+                    <div class="record-data-content">
+                        <p> {{ medical_record.predicaments }} Suspendisse potenti. Ut ultrices egestas facilisis. Cras maximus quis odio vel gravida. Curabitur hendrerit arcu facilisis sapien scelerisque, id lobortis est ullamcorper. Morbi efficitur aliquam cursus. Nunc tellus dolor, interdum vel pellentesque at, egestas id mauris. Maecenas cursus dictum placerat. Curabitur non felis leo.</p>
+                    </div>
+                </div>
+                <div class="record-data-container">
+                    <div class="record-data-content">
+                        <p> {{ medical_record.comment }} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut gravida nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer lacinia elit massa, eu posuere dolor vestibulum eget. In in pharetra diam, eget egestas mauris. Duis condimentum risus nisi, sit amet porttitor mi fermentum non.</p>
+                    </div>
+                </div>
+                 <div class="record-data-container">
+                    <div class="record-data-header">
+                        <p>Doctor</p>
+                    </div>
+                    <div class="record-data-content">
+                        <p> {{ medical_record.doctor_id }} Lorem ipsum </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+

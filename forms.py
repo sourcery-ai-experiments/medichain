@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, SubmitField, PasswordField
+from wtforms import StringField, IntegerField, SubmitField, PasswordField, TextAreaField
 from wtforms.validators import DataRequired
 
 
@@ -17,8 +17,10 @@ class ViewMedicalRecordForm(FlaskForm):
 
 
 class AddMedicalRecordForm(FlaskForm):
+    date = StringField('Date', validators=[DataRequired()])
     patient_id = StringField('Patient ID', validators=[DataRequired()])
-    information = StringField('Information', validators=[DataRequired()])
+    comment = TextAreaField('Comment', validators=[DataRequired()])
+    predicaments = TextAreaField('Predicaments', validators=[DataRequired()])
     submit = SubmitField('Add Record')
 
 
