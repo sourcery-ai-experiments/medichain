@@ -1,4 +1,3 @@
-from key import Key
 from actors import Patient, Doctor, Gender, Contact
 from datetime import date
 from smart_contract import SmartContract
@@ -7,8 +6,7 @@ from medical_data import MedicalHistory, MedicalRecord, Prescription, Medication
 
 def main() -> None:
     dummy_data = {"patient_id": "1238912", "diagnosis": "sdadsdaasd"}
-    key = Key(dummy_data)
-    print(key.value)
+
     patient = Patient(
         first_name="Jan",
         last_name="Kowalski",

@@ -24,7 +24,7 @@ class MedicalRecord:
 
     def __init__(self, prescription: Prescription, note: str):
         self.id = ""  # TODO: create standard of IDs creation
-        self.prescription = Prescription
+        self.prescription = prescription
         self.note = note
         self.timestamp = datetime.now()
 

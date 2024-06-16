@@ -27,19 +27,19 @@ class SmartContract:
     medical_history: MedicalHistory
 
     def __init__(
-        self,
-        patient_id: str,
-        doctor_id: str,
-        read: Tuple[str],
-        write: Tuple[str],
-        edit: Tuple[str],
+            self,
+            patient_id: str,
+            doctor_id: str,
+            read: Tuple[str],
+            write: Tuple[str],
+            edit: Tuple[str],
     ):
         self.patient_id = patient_id
         self.doctor_id = doctor_id
         self.access_control = AccessControl(read=read, write=write, edit=edit)
         self.medical_history = MedicalHistory()
 
-    def handle_access(access_type: str):
+    def handle_access(self, access_type: str):
         match access_type:
             case "read":
                 pass
@@ -50,5 +50,5 @@ class SmartContract:
             case _:
                 print("Something went wrong.")
 
-    def execute(func: function):
+    def execute(self, func: callable):
         func()
