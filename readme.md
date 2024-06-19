@@ -1,0 +1,1 @@
+# Project for the course "Blockchain and Smart Contracts"
