@@ -17,39 +17,33 @@
             </div>
             <div class="form-content one-form-page">
                 <h2>View Medical Records</h2>
-                <form method="POST" action="{{ url_for('doctor') }}">
-                    {{ view_form.hidden_tag() }}
+                <form method="POST" action="{{ url_for('patient') }}">
+                    {{ form.hidden_tag() }}
                     <p>
-                        {{ view_form.record_id.label }}<br>
-                        {{ view_form.record_id(size=32) }}<br>
-                        {% for error in view_form.record_id.errors %}
+                        {{ form.patient_id.label }}<br>
+                        {{ form.patient_id(size=32) }}<br>
+                        {% for error in form.patient_id.errors %}
                             <span class="error">[{{ error }}]</span><br>
                         {% endfor %}
                     </p>
                     <p>
-                        {{ view_form.password.label }}<br>
-                        {{ view_form.password(size=32) }}<br>
-                        {% for error in view_form.password.errors %}
+                        {{ form.code.label }}<br>
+                        {{ form.code(size=32) }}<br>
+                        {% for error in form.code.errors %}
                             <span class="error">[{{ error }}]</span><br>
                         {% endfor %}
                     </p>
-                    <p>
-                        {{ form.decryption_key.label }}<br>
-                        {{ form.decryption_key(size=32) }}<br>
-                        {% for error in form.decryption_key.errors %}
-                            <span class="error">[{{ error }}]</span><br>
-                        {% endfor %}
-                    </p>
+                         <div class="form-button-pane">
+                            <div style="margin-bottom: 2rem;">
+                                <p class="submit-btn-patient">{{ form.submit() }}</p>
+                            </div>
+                        </div>
                 </form>
-            </div>
-            <div class="form-button-pane">
-                <div style="margin-bottom: 2rem;">
-                    <p class="submit-btn-patient">{{ form.submit() }}</p>
-                </div>
                 <div>
                     <a href="{{ url_for('home') }}">&#8592; Back to Home</a>
                 </div>
             </div>
+
         </div>
     </div>
 </body>
