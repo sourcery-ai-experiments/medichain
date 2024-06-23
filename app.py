@@ -76,7 +76,7 @@ def doctor():
                 if mined_block:
                     one_time_code = (key_manager.
                                      add_key(logged_doctor_id, patient_id, encryption_key, add_form.password.data))
-                    print(f'One-time code for patient with {patient_id}: {one_time_code}')
+                    print(f'One-time code for patient with ID {patient_id}: {one_time_code}')
                     flash('Medical record added and saved to blockchain', 'success')
                 else:
                     flash('Failed to add medical record', 'danger')
@@ -143,4 +143,4 @@ def view_medical_record_patient(patient_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
