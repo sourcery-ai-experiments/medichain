@@ -87,7 +87,6 @@ class SmartContract:
 
             mined = False
 
-            # Optionally, create a new block if enough transactions are pending
             if len(self.blockchain.pending_transactions) >= 1:
                 mined = self.blockchain.mine_pending_transactions()
 
