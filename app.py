@@ -64,6 +64,11 @@ def doctor():
             predicaments = [tuple(item.split(':')) for item in predicaments_raw]
             predicaments = [(name.strip(), int(amount.strip())) for name, amount in predicaments]
 
+            if not key_manager.check_password(logged_doctor_id, add_form.password.data):
+                flash('Invalid password', 'danger')
+                logging.error('Invalid password')
+                return redirect(url_for('doctor'))
+
             smart_contract = create_smart_contract(patient_id, logged_doctor_id)
 
             try:
@@ -77,9 +82,13 @@ def doctor():
                     flash('Failed to add medical record', 'danger')
             except PermissionError as e:
                 flash(str(e), 'danger')
-            except InvalidToken as e:
+            except InvalidToken:
                 flash('Invalid password', 'danger')
                 logging.error('Invalid password')
+                return redirect(url_for('doctor'))
+            except ValueError:
+                flash('Failed to add medical record. Probably incorrect password.', 'danger')
+                logging.error('Failed to add medical record. Probably incorrect password.')
                 return redirect(url_for('doctor'))
 
             return redirect(url_for('home'))

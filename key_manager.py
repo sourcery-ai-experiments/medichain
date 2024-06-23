@@ -43,8 +43,8 @@ class KeyManager:
         salt = self.doctor_passwords[doctor_id_num]['salt']
         derived_key = self._derive_key(password, salt)
         cipher_suite = Fernet(derived_key)
-        # print password
-        if cipher_suite.decrypt(self.doctor_passwords[doctor_id_num]['password']).decode() != password:
+
+        if not self.check_password(doctor_id_num, password):
             raise ValueError("Invalid password.")
 
         if doctor_id_num not in self.doctor_keys:
@@ -100,4 +100,13 @@ class KeyManager:
         except InvalidToken:
             raise ValueError("Invalid code.")
 
-
+    def check_password(self, doctor_id_num: str, password: str) -> bool:
+        salt = self.doctor_passwords[doctor_id_num]['salt']
+        derived_key = self._derive_key(password, salt)
+        cipher_suite = Fernet(derived_key)
+        try:
+            if cipher_suite.decrypt(self.doctor_passwords[doctor_id_num]['password']).decode() == password:
+                return True
+        except InvalidToken:
+            pass
+        return False
