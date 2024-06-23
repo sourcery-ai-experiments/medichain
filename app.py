@@ -5,7 +5,7 @@ from flask import Flask, render_template, redirect, url_for, flash, session, req
 from blockchain import Blockchain
 from key_manager import KeyManager
 from encryption import CryptographyManager
-from forms import PatientForm, EmergencyForm, ViewMedicalRecordForm, AddMedicalRecordForm
+from forms import PatientForm, ViewMedicalRecordForm, AddMedicalRecordForm
 from smart_contract import SmartContract
 
 app = Flask(__name__)
@@ -85,16 +85,6 @@ def doctor():
             return redirect(url_for('home'))
 
     return render_template('doctor.html', view_form=view_form, add_form=add_form)
-
-
-@app.route('/emergency', methods=['GET', 'POST'])
-def emergency():
-    form = EmergencyForm()
-    if form.validate_on_submit():
-        # Process the form data for viewing patient medical records
-        flash('Viewing patient medical records in emergency', 'success')
-        return redirect(url_for('view_medical_record', record_id=form.patient_id.data))
-    return render_template('emergency.html', form=form)
 
 
 @app.route('/view_medical_record_doctor/<patient_id>')
