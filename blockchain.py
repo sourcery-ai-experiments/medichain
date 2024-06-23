@@ -58,19 +58,6 @@ class Blockchain:
     def add_transaction(self, transaction: dict):
         self.pending_transactions.append(transaction)
 
-    def is_chain_valid(self):
-        for i in range(1, len(self.chain)):
-            current = self.chain[i]
-            previous = self.chain[i - 1]
-
-            if current.hash != current.compute_hash():
-                return False
-
-            if current.previous_hash != previous.hash:
-                return False
-
-        return True
-
     def mine_pending_transactions(self):
         mined = False
         while self.pending_transactions:

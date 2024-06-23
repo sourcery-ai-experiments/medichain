@@ -24,9 +24,7 @@ def create_smart_contract(patient_id, doctor_id=None):
     return SmartContract(
         patient_id=patient_id,
         doctor_id=doctor_id,
-        read=(patient_id, doctor_id),
         write=(doctor_id,),
-        edit=(doctor_id,),
         blockchain=blockchain,
         crypto_manager=crypto_manager,
     )

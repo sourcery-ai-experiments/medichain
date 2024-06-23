@@ -8,11 +8,9 @@ class AuditTrail:
     timestamp: datetime
     patient_id: str
     doctor_id: str
-    # AccessType possibly?
 
     def __init__(self, patient_id: str, doctor_id: str):
         self.timestamp = datetime.now()
-        print(self.timestamp)
         self.patient_id = patient_id
         self.doctor_id = doctor_id
         self.id = self.generate_id()
