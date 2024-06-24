@@ -29,7 +29,7 @@ class MedicalRecord:
     note: str = ""
 
     def __init__(self, patient_id, prescription: Prescription, note: str):
-        self.id = patient_id  # TODO: create standard of IDs creation
+        self.id = patient_id
         self.prescription = prescription
         self.note = note
         self.timestamp = datetime.now()
@@ -41,18 +41,3 @@ class MedicalRecord:
             "timestamp": self.timestamp.isoformat(),
             "note": self.note
         }
-
-
-@dataclass
-class MedicalHistory:
-    records: List[MedicalRecord] = field(default_factory=list)
-
-    # TODO: Authorization system
-    def read(self) -> str:
-        print(self.records)
-
-    def write(self, record: MedicalRecord) -> None:
-        self.records.append(record)
-
-    def edit(self):
-        pass
